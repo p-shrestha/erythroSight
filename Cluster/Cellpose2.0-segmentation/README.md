@@ -8,7 +8,7 @@ The different unique IDs or UIDs from the Nepal study are listed in `case_list` 
 ## Canada data segmentation
 The different unique IDs or UIDs from the Canada study are listed in `case_listc` in ascending order of the size of the directories. The shell scripts `runCPc.sh` runs Cellpose2.0 for different segments case_listc. Note: Unlike the earlier implementation (Nepal data), the `--time` and `--array` information are not provided in the shell script, but rather entered when submitting the job, as follows:
 
-``sbatch --time=16-10:00:00 --array=29 runCPc.sh
+```sbatch --time=16-10:00:00 --array=29 runCPc.sh
 sbatch --time=14-10:00:00 --array=27-28 runCPc.sh
 sbatch --time=12-12:00:00 --array=25-26 runCPc.sh
 sbatch --time=12-00:00:00 --array=23-24 runCPc.sh
@@ -20,4 +20,4 @@ sbatch --time=6-14:00:00 --array=10-11 runCPc.sh
 sbatch --time=6-09:00:00 --array=8-9 runCPc.sh
 sbatch --time=6-00:00:00 --array=6-7 runCPc.sh
 sbatch --time=4-15:00:00 --array=4-5 runCPc.sh
-sbatch --time=4-00:00:00 --array=1-3 runCPc.sh``
+sbatch --time=4-00:00:00 --array=1-3 runCPc.sh```
