@@ -9,4 +9,4 @@ Three main versions are provided to process data from:
 - Canada
 - Canada time series
 
-The python script, e.g. 'export_DPC_XY_Multiple_CC.py', processes the raw images to DPC files by traversing through the directory/file structure. The bash shell script, e.g. 'runDPCArchived.sh', is used to submit the job in the cluster. The job is submitted using commands such as 'sbatch runrunDPCArchived.sh'. Note that 'runDPCCanadaTimeSeries.sh' uses a job array that reads the name of the unique IDs (UIDs) from the file 'caseListTimeSeries'. 
+The python script, e.g. `export_DPC_XY_Multiple_CC.py`, processes the raw images to DPC files by traversing through the directory/file structure. The bash shell script, e.g. `runDPCArchived.sh`, is used to submit the job in the cluster. The job is submitted using commands such as `sbatch runrunDPCArchived.sh`. Note that `runDPCCanadaTimeSeries.sh` uses a job array that reads the name of the unique IDs (UIDs) from the file `caseListTimeSeries`. 
