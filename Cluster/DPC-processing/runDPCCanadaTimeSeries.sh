@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --account=def-stoeber
-#SBATCH --array=14          # Run array of 14 simultaneous jobs in caseListTimeSeries
+#SBATCH --array=1-14          # Run array of 14 simultaneous jobs in caseListTimeSeries
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --mem=8G
