@@ -21,3 +21,5 @@ sbatch --time=6-09:00:00 --array=8-9 runCPc.sh
 sbatch --time=6-00:00:00 --array=6-7 runCPc.sh
 sbatch --time=4-15:00:00 --array=4-5 runCPc.sh
 sbatch --time=4-00:00:00 --array=1-3 runCPc.sh
+
+The time series data for Canada is processed using another script, which can be found in the TimeSeries folder. 
