@@ -24,7 +24,7 @@ pip install cellpose
 
 # Loop through directories “CSID”  or coverslip IDs that start with Ai, Aii, Bi, Bii, and so on
 # CSIDdir contains the full path of the CSID directory
-for CSIDdir in /home/shrestha/scratch/ImagesCanada/DPC/TimeSeries/$DIR/[ABCDEFGNSTRabcdefgnstr]*/
+for CSIDdir in /home/shrestha/scratch/ImagesCanada/DPC/TimeSeries/$DIR/[ABCDEFGHNSTRabcdefghnstr]*/
 do
         # Save the directory structure for UID/CSID in variable UtCSID
         UtCSID=${CSIDdir#*DPC/}
