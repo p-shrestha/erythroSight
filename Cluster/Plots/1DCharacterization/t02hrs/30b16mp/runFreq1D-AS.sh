@@ -2,7 +2,7 @@
 #SBATCH --account=def-stoeber
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=1
-#SBATCH --mem=0
+#SBATCH --mem=200G
 #SBATCH --time=02:00:00
 #SBATCH --mail-type=begin         # send mail when job begins
 #SBATCH --mail-type=end           # send mail when job ends
