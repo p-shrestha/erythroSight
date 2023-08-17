@@ -8,6 +8,7 @@ All the files are saved and the computations are done in the compute nodes thems
 - Python programs e.g. `imagej_roi_converter_CC_Archive.py` are saved in $SLURM_TMPDIR
 - Imagej is run in headless mode and results saved in `$SLURM_TMPDIR/MorphParam`
 - Result files are archived and saved in local node, e.g. `/home/shrestha/projects/def-stoeber/shrestha/MorphologicalParameters/Nepal/[UID]`
+- The results (morphological characterization of every segmented cell in each image) are saved as .csv files 
 
 The python programs open the outline files with corresponding image files to calculate the required morphological and intensity parameters. The following python files are included: 
 - `imagej_roi_converter_CC_Archive.py`: For processing Nepal data
