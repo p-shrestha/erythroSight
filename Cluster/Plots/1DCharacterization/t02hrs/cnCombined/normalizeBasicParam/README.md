@@ -4,5 +4,5 @@ This section includes a MATLAB program to read the `morphParamData.mat` and `gen
 
 The MATLAB program `normalizeBasicParam.m` is run using the shell script `runNormalizeBMP.sh` by using the command: 
 ```
-sbatch --time=02:00:00 --array=1-4 runNormalizeBMP.sh
+sbatch --time=06:00:00 --array=1-4 runNormalizeBMP.sh
 ```
