@@ -71,7 +71,7 @@ for kInd = 1:1:length(kList) % Iterate through all the parameters to normalize
                     cellIndF = cellIndI + nCellsInImage - 1;
                     % Concatenate to the newly created morphological
                     % parameter
-                    morphParam{1,uidI}{1,(kU+kInd)} = cat(2,morphParam{1,uidI}{1,(kU+kInd)}, morphParam{1,uidI}{1,kList(kInd)}(cellIndI:cellIndF)./mean(morphParam{1,uidI}{1,kList(kInd)}(cellIndI:cellIndF)));
+                    morphParam{1,uidI}{1,(kU+kInd)} = cat(1,morphParam{1,uidI}{1,(kU+kInd)}, morphParam{1,uidI}{1,kList(kInd)}(cellIndI:cellIndF)./mean(morphParam{1,uidI}{1,kList(kInd)}(cellIndI:cellIndF)));
                 end
 
                 nCellsInPrevImage = nCellsInImage;
