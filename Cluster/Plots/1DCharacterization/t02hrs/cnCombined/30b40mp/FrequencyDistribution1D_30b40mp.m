@@ -410,8 +410,8 @@ for k = 1:1:length(morphParamName)
     hold off
     set(gcf, 'Units', 'Inches', 'Position', [0, 0, 3.5, 2.163], 'PaperUnits', 'Inches', 'PaperSize', [3.5, 2.163]);
     set(findall(gcf,'-property','FontSize'),'FontSize',8)
-    fnamePNG = strcat('Figures/',groupName,'/2_Donorwise-',morphParamName{k}, '-', groupName,'-Ncells-', num2str(nCellsGroup),'-Nimages-', num2str(nImagesGroup),'.png');
-    fnameFig = strcat('Figures/',groupName,'/2_Donorwise-',morphParamName{k}, '-', groupName,'-Ncells-', num2str(nCellsGroup),'-Nimages-', num2str(nImagesGroup),'.fig');
+    fnamePNG = strcat('Figures/',groupName,'/2_',num2str(k),'_Donorwise-',morphParamName{k}, '-', groupName,'-Ncells-', num2str(nCellsGroup),'-Nimages-', num2str(nImagesGroup),'.png');
+    fnameFig = strcat('Figures/',groupName,'/2_',num2str(k),'_Donorwise-',morphParamName{k}, '-', groupName,'-Ncells-', num2str(nCellsGroup),'-Nimages-', num2str(nImagesGroup),'.fig');
     print(gcf,fnamePNG,'-dpng','-r600');
     saveas(gcf,fnameFig);
     close;
@@ -451,8 +451,8 @@ for k = 1:1:length(morphParamName)
     hold off
     set(gcf, 'Units', 'Inches', 'Position', [0, 0, 3.5, 2.163], 'PaperUnits', 'Inches', 'PaperSize', [3.5, 2.163]);
     set(findall(gcf,'-property','FontSize'),'FontSize',8)
-    fnamePNG = strcat('Figures/',groupName,'/3_Coverslip-wise-',morphParamName{k}, '-', groupName,'-Ncells-', num2str(nCellsGroup),'-Nimages-', num2str(nImagesGroup),'.png');
-    fnameFig = strcat('Figures/',groupName,'/3_Coverslip-wise-',morphParamName{k}, '-', groupName,'-Ncells-', num2str(nCellsGroup),'-Nimages-', num2str(nImagesGroup),'.fig');
+    fnamePNG = strcat('Figures/',groupName,'/3_',num2str(k),'_Coverslip-wise-',morphParamName{k}, '-', groupName,'-Ncells-', num2str(nCellsGroup),'-Nimages-', num2str(nImagesGroup),'.png');
+    fnameFig = strcat('Figures/',groupName,'/3_',num2str(k),'_Coverslip-wise-',morphParamName{k}, '-', groupName,'-Ncells-', num2str(nCellsGroup),'-Nimages-', num2str(nImagesGroup),'.fig');
     print(gcf,fnamePNG,'-dpng','-r600');
     saveas(gcf,fnameFig);
     close;
@@ -481,8 +481,8 @@ for kk = 1:1:length(kValue)
     hold off
     set(gcf, 'Units', 'Inches', 'Position', [0, 0, 3.5, 2.163], 'PaperUnits', 'Inches', 'PaperSize', [3.5, 2.163]);
     set(findall(gcf,'-property','FontSize'),'FontSize',8)
-    fnamePNG = strcat('Figures/',groupName,'/0_Mean-vs-overallHist-',morphParamName{k}, '-', groupName,'-Ncells-', num2str(nCellsGroup),'-Nimages-', num2str(nImagesGroup),'.png');
-    fnameFig = strcat('Figures/',groupName,'/0_Mean-vs-overallHist-',morphParamName{k}, '-', groupName,'-Ncells-', num2str(nCellsGroup),'-Nimages-', num2str(nImagesGroup),'.fig');
+    fnamePNG = strcat('Figures/',groupName,'/0_',num2str(k),'_Mean-vs-overallHist-',morphParamName{k}, '-', groupName,'-Ncells-', num2str(nCellsGroup),'-Nimages-', num2str(nImagesGroup),'.png');
+    fnameFig = strcat('Figures/',groupName,'/0_',num2str(k),'_Mean-vs-overallHist-',morphParamName{k}, '-', groupName,'-Ncells-', num2str(nCellsGroup),'-Nimages-', num2str(nImagesGroup),'.fig');
     print(gcf,fnamePNG,'-dpng','-r600');
     saveas(gcf,fnameFig);
     close;
@@ -523,10 +523,11 @@ for k = 1:1:length(morphParamName)
     hold off
     set(gcf, 'Units', 'Inches', 'Position', [0, 0, 3.5, 2.163], 'PaperUnits', 'Inches', 'PaperSize', [3.5, 2.163]);
     set(findall(gcf,'-property','FontSize'),'FontSize',8)
-    fnamePNG = strcat('Figures/',groupName,'/4_Image-wise-',morphParamName{k}, '-', groupName,'-Ncells-', num2str(nCellsGroup),'-Nimages-', num2str(nImagesGroup),'.png');
-    fnameFig = strcat('Figures/',groupName,'/4_Image-wise-',morphParamName{k}, '-', groupName,'-Ncells-', num2str(nCellsGroup),'-Nimages-', num2str(nImagesGroup),'.fig');
+    fnamePNG = strcat('Figures/',groupName,'/4_',num2str(k),'_Image-wise-',morphParamName{k}, '-', groupName,'-Ncells-', num2str(nCellsGroup),'-Nimages-', num2str(nImagesGroup),'.png');
+    fnameFig = strcat('Figures/',groupName,'/4_',num2str(k),'_Image-wise-',morphParamName{k}, '-', groupName,'-Ncells-', num2str(nCellsGroup),'-Nimages-', num2str(nImagesGroup),'.fig');
     print(gcf,fnamePNG,'-dpng','-r600');
     saveas(gcf,fnameFig);
     close;
 end
 toc
+
