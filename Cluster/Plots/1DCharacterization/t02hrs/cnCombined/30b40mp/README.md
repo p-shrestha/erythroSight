@@ -5,5 +5,5 @@ This implementation of the MATLAB program `FrequencyDistribution1D_30b40mp.m` in
 
 The MATLAB program `FrequencyDistribution1D_30b40mp.m` is run in the cluster using the shell script `runFreq30b40mp.sh` using the following command (conservative estimate of time provided): 
 ```
-sbatch --time=30:00:00 --array=1-4 runFreq30b40mp.sh
+sbatch --time=15:00:00 --array=1-4 runFreq30b40mp.sh
 ```
