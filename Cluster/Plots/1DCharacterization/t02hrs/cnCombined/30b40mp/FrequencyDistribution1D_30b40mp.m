@@ -321,7 +321,7 @@ toc
 % parameter
 tic
 
-histDataI30b40mp = cell(1, length(morphParam));  % Length equal to number of donors or UIDs in this group
+histDataI100b40mp = cell(1, length(morphParam));  % Length equal to number of donors or UIDs in this group
 % Iterate through all files within groupName
 fprintf('Calculating histcountsI for all 40 morophological parameters for group %s.\n',groupName);
 for uidI = 1:1:length(morphParam)
@@ -351,13 +351,15 @@ for uidI = 1:1:length(morphParam)
                 % histDataD is a 2D cell with histogram counts for all
                 % the data. The three levels are 1) donor, 3) image and 2)
                 % morphological parameter
-                [histDataI30b40mp{1,uidI}{1,imInd}{1,k}, edgesTemp] = histcounts(morphParam{1,uidI}{1,k}(cellIndI:cellIndF), edges{k}, 'Normalization','probability');
+                [histDataI100b40mp{1,uidI}{1,imInd}{1,k}, edgesTemp] = histcounts(morphParam{1,uidI}{1,k}(cellIndI:cellIndF), edges{k}, 'Normalization','probability');
             end
         end
 
     end
 
 end
+toc
+
 
 %% 6b) Save variables for histDataI
 tic
