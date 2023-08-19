@@ -11,7 +11,7 @@
 
 
 % NOTE: The first 3 sections runs normalizeBasicParam in this program
-
+%{
 %% 1) Load data - morphParamData and generalInfo
 % groupName = 'AA', 'ABeta', 'AS', 'SCD'; 
 % The groupName variable is inputted in the shell script while running the
@@ -102,7 +102,7 @@ fprintf("Saving variables for morphParam.... \n");
 save(strcat("../",groupName, "/morphParamData.mat"),"morphParam", '-v7.3');
 
 toc
-
+%}
 
 % ------------------------------------------------------------------------
 % HISTDATA CALCULATION
@@ -113,13 +113,13 @@ toc
 % program in the shell script (in the cluster)
 
 % NOTE: Uncomment if normalizeBasicParam is not run in this program
-%{
+
 tic
 load(strcat("../",groupName,"/generalInfo.mat"));
 load(strcat("../",groupName,"/morphParamData.mat"));
 %load(strcat("../",groupName,"/histData.mat"));
 toc
-%}
+
 
 
 %% 2) Find minimum and maximum values of all morphological parameters
