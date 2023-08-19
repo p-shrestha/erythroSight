@@ -9,8 +9,8 @@
 % Can be run in linux or the cluster with the following command (example): 
 % matlab -nodisplay -r "groupName = \"AA\";FrequencyDistribution1D_30b40mp"
 
-
 % NOTE: The first 3 sections runs normalizeBasicParam in this program
+
 %{
 %% 1) Load data - morphParamData and generalInfo
 % groupName = 'AA', 'ABeta', 'AS', 'SCD'; 
@@ -121,7 +121,6 @@ load(strcat("../",groupName,"/morphParamData.mat"));
 toc
 
 
-
 %% 2) Find minimum and maximum values of all morphological parameters
 tic
 % Min and Max store minimum and maximum values for all morphological
@@ -156,7 +155,7 @@ end
 %Max = [2000 250 180 120 45 115 115 250 105 255 6 30 115 180 55 3000 3000 1 30 1 2500 1 1 1 1 1 250 1 40 40 1.6 1.6];
 
 Min = [0 40 0 10 5 5 5 100 5 90 -2.5 -2.5 10 0 5 0 0 0.2 0 0.2 0 0.5 0 0.2 0.2 0.2 40 0.7 5 10 1 0.5 0 0 0 0 0 0 0 0];
-Max = [1200 160 180 60 35 65 55 170 65 170 2.5 5 60 180 45 3000 3000 1 5 1 1200 1.5 1 1 1.5 1 160 1.1 30 60 3 1.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5];
+Max = [1200 160 180 60 35 65 55 170 65 170 2.5 5 60 180 45 3000 3000 1 5 1 1200 1.5 1 1 1.5 1 160 1.1 30 60 3 1.5 2 2 2 2 2 2 2 2];
 
 % Make a variable edges with equally spaced edges for histocount for all
 % morphological parameters using max and min values above
@@ -321,7 +320,7 @@ toc
 % parameter
 tic
 
-histDataI100b40mp = cell(1, length(morphParam));  % Length equal to number of donors or UIDs in this group
+histDataI30b40mp = cell(1, length(morphParam));  % Length equal to number of donors or UIDs in this group
 % Iterate through all files within groupName
 fprintf('Calculating histcountsI for all 40 morophological parameters for group %s.\n',groupName);
 for uidI = 1:1:length(morphParam)
@@ -331,9 +330,9 @@ for uidI = 1:1:length(morphParam)
 
         % Iterate through all images in the coverslip csI of uid 
         for iI = 1:1:length(nCells{1,uidI}{1,csI})
-            imInd = imInd + 1;
+            
             nCellsInImage = nCells{1,uidI}{1,csI}(iI);
-
+            imInd = imInd + 1;
             % cellIndI and cellIndF are the initial and final indices for
             % the cells in morphParam for the entire image
             if csI ==1 && iI == 1
@@ -345,21 +344,28 @@ for uidI = 1:1:length(morphParam)
             end
 
             nCellsInPrevImage = nCellsInImage;
+            
+            if nCellsInImage >= 1000    % Only include images with cells equal to or greater than 1000 cells
 
-            %Iterate through all morphological parameters (columns) within each file
-            for k = 1:1:length(morphParamName)
-                % histDataD is a 2D cell with histogram counts for all
-                % the data. The three levels are 1) donor, 3) image and 2)
-                % morphological parameter
-                [histDataI100b40mp{1,uidI}{1,imInd}{1,k}, edgesTemp] = histcounts(morphParam{1,uidI}{1,k}(cellIndI:cellIndF), edges{k}, 'Normalization','probability');
+                %Iterate through all morphological parameters (columns) within each file
+                for k = 1:1:length(morphParamName)
+                    % histDataD is a 2D cell with histogram counts for all
+                    % the data. The three levels are 1) donor, 3) image and 2)
+                    % morphological parameter
+                    [histDataI30b40mp{1,uidI}{1,imInd}{1,k}, edgesTemp] = histcounts(morphParam{1,uidI}{1,k}(cellIndI:cellIndF), edges{k}, 'Normalization','probability');
+                end
             end
+
         end
 
     end
 
 end
-toc
 
+fprintf('\t Total number of images in group %s = %d.\n',groupName, num2str(nImagesGroup));
+fprintf('\t Number of images with >=1000 cells in group %s = %d.\n',groupName, num2str(imInd));
+fprintf('\t \t Number of images omitted with <1000 cells in group %s = %d.\n',groupName, num2str(nImagesGroup-imInd));
+toc
 
 %% 6b) Save variables for histDataI
 tic
@@ -465,8 +471,8 @@ tic
 fprintf('Plotting frequency distribution (only mean and overall or group-wise) for %s.\n',groupName);
 kValue = [1,18,23]; %18: Circularity; 23: Eccentricity
  
-pGroups = ["AA", "ABeta", "AS", "SBeta", "SS", "N", "SCT", "SCD", "Test2"];
-colors = {[27/255 158/255 119/255], [217/255 95/255 2/255], [117/255 112/255 179/255], [166/255 118/255 29/255], [231/255 41/255 138/255], [35/255 110/255 90/255],[115/255 85/255 140/255], [180/255 40/255 90/255], [180/255 40/255 90/255] }; % First five colors taken from ColorBrewer2 Dark2
+pGroups = ["AA", "ABeta", "AS", "SCD"];
+colors = {[27/255 158/255 119/255], [217/255 95/255 2/255], [117/255 112/255 179/255], [231/255 41/255 138/255], [166/255 118/255 29/255],[35/255 110/255 90/255],[115/255 85/255 140/255], [180/255 40/255 90/255], [180/255 40/255 90/255] }; % First five colors taken from ColorBrewer2 Dark2
  
 % Find the index for the pGroups, which defines the index for the color
 colorI = find(contains(pGroups, groupName));
@@ -478,6 +484,7 @@ for kk = 1:1:length(kValue)
     plot(midBin{k}, meanHistD30b40mp{k}, '--','color', colors{colorI});
     plot(midBin{k}, medianHistD30b40mp{k}, '-.','color', colors{colorI});
     title(groupName);
+    xlabel(morphParamAxis{k}); ylabel("Normalized frequency");
     hold off
     set(gcf, 'Units', 'Inches', 'Position', [0, 0, 3.5, 2.163], 'PaperUnits', 'Inches', 'PaperSize', [3.5, 2.163]);
     set(findall(gcf,'-property','FontSize'),'FontSize',8)
