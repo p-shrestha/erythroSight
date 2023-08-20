@@ -332,7 +332,7 @@ for uidI = 1:1:length(morphParam)
         for iI = 1:1:length(nCells{1,uidI}{1,csI})
             
             nCellsInImage = nCells{1,uidI}{1,csI}(iI);
-            imInd = imInd + 1;
+            
             % cellIndI and cellIndF are the initial and final indices for
             % the cells in morphParam for the entire image
             if csI ==1 && iI == 1
@@ -346,7 +346,7 @@ for uidI = 1:1:length(morphParam)
             nCellsInPrevImage = nCellsInImage;
             
             if nCellsInImage >= 1000    % Only include images with cells equal to or greater than 1000 cells
-
+                imInd = imInd + 1;
                 %Iterate through all morphological parameters (columns) within each file
                 for k = 1:1:length(morphParamName)
                     % histDataD is a 2D cell with histogram counts for all
@@ -362,9 +362,9 @@ for uidI = 1:1:length(morphParam)
 
 end
 
-fprintf('\t Total number of images in group %s = %d.\n',groupName, num2str(nImagesGroup));
-fprintf('\t Number of images with >=1000 cells in group %s = %d.\n',groupName, num2str(imInd));
-fprintf('\t \t Number of images omitted with <1000 cells in group %s = %d.\n',groupName, num2str(nImagesGroup-imInd));
+fprintf('\t Total number of images in group %s = %d.\n',groupName, nImagesGroup);
+fprintf('\t Number of images with >=1000 cells in group %s = %d.\n',groupName, imInd);
+fprintf('\t \t Number of images omitted with <1000 cells in group %s = %d.\n',groupName, (nImagesGroup-imInd));
 toc
 
 %% 6b) Save variables for histDataI
