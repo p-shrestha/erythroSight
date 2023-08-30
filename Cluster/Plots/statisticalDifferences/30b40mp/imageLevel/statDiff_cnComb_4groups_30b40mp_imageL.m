@@ -328,7 +328,12 @@ for k = 1:1:length(morphParamLegends)
     %dx = (midBin{k}(ix) - midBin{k}(ix-1))/2;
     dx = (midBin{k}(2) - midBin{k}(1))/2;
     yL = ylim;
-    rectangle('Position',[midBin{k}(ix-1)+dx yL(1) dx*2 yL(2)-yL(1)],'EdgeColor',[180/255, 180/255, 180/255]);%, 'Curvature',0.5); % Create a rectangle
+    if ix ==1
+        rectangle('Position',[dx yL(1) dx*2 yL(2)-yL(1)],'EdgeColor',[180/255, 180/255, 180/255]);%, 'Curvature',0.5); % Create a rectangle
+    else
+        rectangle('Position',[midBin{k}(ix-1)+dx yL(1) dx*2 yL(2)-yL(1)],'EdgeColor',[180/255, 180/255, 180/255]);%, 'Curvature',0.5); % Create a rectangle
+    end
+
     box on;
     ylim([yL(1), yL(2)]);
 
