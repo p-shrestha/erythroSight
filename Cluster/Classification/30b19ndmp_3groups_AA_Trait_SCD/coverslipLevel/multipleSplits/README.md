@@ -6,3 +6,4 @@ The MATLAB program `classificationMultipleSplits_AA_Trait_SCD.m` is run in the c
 ```
 sbatch --time=30:00:00 --array=1-30 runClassificationMultipleSplits_CS_3groups_AAs.sh
 ```
+After completing the classification on different groups, the performance metrics can be summmarized by running the MATLAB program `summarizeMetrics_3groups_AA_Trait_SCD.m`, which creates a folder `0Summary`, and saves .csv files with summaries. `evalMetricsTableAcc.csv`, `overallMetricsTableAcc.csv` and `rankedTableAcc.csv` (and `evalMetricsTableAUROC.csv`, `overallMetricsTableAUROC.csv` and `rankedTableAUROC.csv`) are created/saved based on metrics ranked according to testing accuracy (or AUROC). 
