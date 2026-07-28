@@ -1,3 +1,5 @@
 # Fine-tuned models after human-in-the-loop approach
 
 The models fine-tuned using human-in-the-loop approach are provided in this folder. 125 image segments from multiple donors with user annotations for each image segment were used in a recursive training approach.
+
+Model can be found here: erythroSight: Open-access image dataset of blood cells from individuals with sickle cell disease and/or beta-thalassemia or without known hemaglobinopathies, captured using automated microscope Octopi. Federated Research Data Repository. doi: 10.20383/103.0916 https://doi.org/10.20383/103.0916
